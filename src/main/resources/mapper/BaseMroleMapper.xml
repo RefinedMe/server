@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.refined.sso.server.mapper.BaseMroleMapper">
+    <select id="findRolesByUserId" resultType="com.refined.sso.server.entity.BaseMrole">
+        SELECT r.*
+        FROM base_mrole r,
+             base_mrolemember ur
+        WHERE r.mr_id = ur.mrm_rid
+          AND ur.mrm_aid IN (#{maAid})
+    </select>
+</mapper>
