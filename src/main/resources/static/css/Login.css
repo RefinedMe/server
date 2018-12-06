@@ -1,0 +1,118 @@
+.ant-carousel .slick-slide {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.login-bg1 {
+    background: url('/auth/images/birmy1.jpg') no-repeat;
+    background-size: 100% 100%;
+}
+
+.login-bg2 {
+    background: url('/auth/images/birmybg2.png') no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    height: 100%;
+}
+
+.bg2child1 {
+    background: url('/auth/images/birmys1.png') no-repeat;
+    background-size: 100% 100%;
+    width: 468px;
+    height: 520px;
+    position: absolute;
+    top: 100px;
+    left: 110px;
+}
+
+.bg2child2 {
+    background: url('/auth/images/birmys2.png') no-repeat;
+    background-size: 100% 100%;
+    width: 178px;
+    height: 56px;
+    position: absolute;
+    top: 170px;
+    left: 70px;
+}
+
+.bg2child3 {
+    background: url('/auth/images/birmys3.png') no-repeat;
+    background-size: 100% 100%;
+    width: 207px;
+    height: 21px;
+    position: absolute;
+    top: 550px;
+    left: 350px;
+}
+
+.bg2child4 {
+    background: url('/auth/images/birmys4.png') no-repeat;
+    background-size: 100% 100%;
+    width: 241px;
+    height: 75px;
+    position: absolute;
+    top: 210px;
+    left: 500px;
+}
+
+.bg2child5 {
+    background: url('/auth/images/birmys5.png') no-repeat;
+    background-size: 100% 100%;
+    width: 141px;
+    height: 64px;
+    position: absolute;
+    top: 110px;
+    right: 70px;
+}
+.ant-input-affix-wrapper {
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, .65);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.anticon {
+    display: inline-block;
+    font-style: normal;
+    vertical-align: -.125em;
+    text-align: center;
+    text-transform: none;
+    line-height: 0;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.ant-input {
+    padding-left: 30px;
+    min-height: 100%;
+    position: static;
+    font-variant: tabular-nums;
+    box-sizing: border-box;
+    margin: 0;
+    list-style: none;
+    display: inline-block;
+    width: 100%;
+    height: 32px;
+    font-size: 14px;
+    line-height: 1.5;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    transition: all .3s;
+}
+
+.ant-input-prefix {
+    left: 12px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 0;
+    color: rgba(0, 0, 0, .65);
+}

@@ -31,7 +31,8 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
                 .scopes("user_info")
                 .autoApprove(true)
                 .redirectUris("http://localhost:8082/ui/login", "http://localhost:8083/ui2/login",
-                        "http://localhost:8082/login","http://refinedall.cn:8082/ui/login","http://refinedall.cn:8082/login")
+                        "http://localhost:8082/login","http://refinedall.cn:8082/ui/login",
+                        "http://refinedall.cn:8082/login","http://167f6370p4.iok.la/ui/login")
                 .and()
                 .withClient("pig")
                 .secret(passwordEncoder.encode("pig"))

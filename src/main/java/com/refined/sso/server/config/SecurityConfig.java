@@ -2,7 +2,6 @@ package com.refined.sso.server.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -19,16 +18,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and()
                 .formLogin()
                 .loginPage("/token/login")
-                .loginProcessingUrl("/token/form")
+                .loginProcessingUrl("/token/form").permitAll()
                 .and()
-                .authorizeRequests()
+                .requestMatchers()
                 .antMatchers(
-                        "/token/**",
+                        "/login/**",
                         "/actuator/**",
-                        "/mobile/**").permitAll()
-                .anyRequest().authenticated()
-                .and().csrf().disable()
-                ;
+                        "/oauth/**", "/token/**","/css/**","/images/**","/**/favicon.ico")
+                .and()
+                .authorizeRequests().anyRequest().authenticated()
+                .and().csrf().disable();
     }
 
     /**
@@ -38,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     public void configure(WebSecurity web) {
-        web.ignoring().antMatchers("/css/**");
+        web.ignoring().antMatchers("/css/**","/images/**","/**/favicon.ico");
     }
 
     @Override

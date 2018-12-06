@@ -2,7 +2,7 @@ package com.refined.sso.server.config;
 
 import com.refined.sso.server.service.MyUserDetailsService;
 import com.refined.sso.server.util.BCrypt;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -15,13 +15,12 @@ import org.springframework.stereotype.Component;
 import java.util.Collection;
 
 /**
- * Created by fjc on 2018-04-23.
+ * 提供自定义验证密码方式
  */
 @Component
+@AllArgsConstructor
 public class MyAuthenticationProvider implements AuthenticationProvider {
-    @Autowired
     private MyUserDetailsService userDetailsService;
-
 
     /**
      * 自定义验证方式
@@ -32,6 +31,9 @@ public class MyAuthenticationProvider implements AuthenticationProvider {
         String password = (String) authentication.getCredentials();
         System.out.println("前端传过来的明文密码:" + password);
         UserDetails user = userDetailsService.loadUserByUsername(username);
+        if (user == null) {
+            return null;
+        }
         //加密过程在这里体现
         System.out.println("已经查询出来的数据库存储密码:" + user.getPassword());
         if (!BCrypt.checkpw(password, user.getPassword())) {

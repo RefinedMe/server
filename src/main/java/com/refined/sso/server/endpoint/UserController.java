@@ -18,12 +18,12 @@ import java.security.Principal;
 @AllArgsConstructor
 public class UserController {
     private BaseMaccountService baseMaccountService;
-    @RequestMapping("user/me")
+    @RequestMapping("/user/me")
     public Principal user(Principal principal) {
         System.out.println(principal);
         return principal;
     }
-    @RequestMapping("user/info")
+    @RequestMapping("/user/info")
     public UserInfo info(Principal principal) {
         Authentication authentication =  SecurityContextHolder.getContext().getAuthentication();
         System.out.println(authentication);

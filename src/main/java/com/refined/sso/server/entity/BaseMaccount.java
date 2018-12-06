@@ -1,5 +1,6 @@
 package com.refined.sso.server.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
@@ -35,13 +36,18 @@ public class BaseMaccount extends Model<BaseMaccount> {
     private String maPicture;
     private String maType;
     private String maRemind;
+    @TableField("ma_payID")
     private String maPayId;
+    @TableField("ma_payName")
     private String maPayName;
+    @TableField("ma_payPassword")
     private String maPayPassword;
     private String maFirstName;
     private String maLastName;
     private Date updstamp;
+    @TableField("createPid")
     private String createPid;
+    @TableField("lastEditPid")
     private String lastEditPid;
     private String eid;
     private String ismail;
