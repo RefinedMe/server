@@ -31,9 +31,10 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
                 .scopes("user_info")
                 .autoApprove(true)
                 .redirectUris("http://localhost:9001/ui/login", "http://47.94.84.100:9001/ui/login",
-                        "http://localhost:9001/login","http://refinedall.cn:8082/ui/login",
-                        "http://www.xiaoniuzp.com:9001/ui/login",
-                        "http://refinedall.cn:8082/login","http://167f6370p4.iok.la/ui/login")
+                        "http://localhost:9001/login","http://refinedall.cn:9001/ui/login",
+                        "http://www.xiaoniuzp.com:9001/ui/login","http://www.xiaoniuzp.com/ui/login",
+                        "http://10.125.4.32:9001/ui/login",
+                        "http://refinedall.cn:9001/login","http://167f6370p4.iok.la/ui/login")
                 .and()
                 .withClient("pig")
                 .secret(passwordEncoder.encode("pig"))

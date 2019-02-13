@@ -6,12 +6,15 @@ import com.refined.sso.server.service.BaseMaccountService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.security.Principal;
 
 @RestController
@@ -39,5 +42,16 @@ public class UserController {
     public ModelAndView require(HttpServletRequest request) {
         System.out.println("1,,,,, " + request.getSession().getId());
         return new ModelAndView("ftl/login");
+    }
+    @RequestMapping("/exit")
+    public void exit(HttpServletRequest request, HttpServletResponse response) {
+        // token can be revoked here if needed
+        new SecurityContextLogoutHandler().logout(request, null, null);
+        try {
+            //sending back to client app
+            response.sendRedirect(request.getHeader("referer"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

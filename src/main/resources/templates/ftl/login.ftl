@@ -59,7 +59,7 @@
                                 </svg>
                             </i>
                         </span>
-                        <input name="password" type="text" placeholder="请输入密码" class="ant-input">
+                        <input name="password" type="password" placeholder="请输入密码" class="ant-input">
                     </span>
                 </div>
 
